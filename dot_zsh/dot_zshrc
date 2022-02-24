@@ -71,6 +71,8 @@ else
    export EDITOR='lvim'
 fi
 
+# ctrl-t
+export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --follow --glob "" --glob "!vendor/*" 2>/dev/null'
 
 # config management
 alias update-config="chezmoi git pull -- --rebase && chezmoi diff"
