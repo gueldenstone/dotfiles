@@ -1,0 +1,7 @@
+# Lines starting with # are comments
+
+# Format
+-S res,ext:mp4:m4a --recode mp4
+
+# Save all videos under YouTube directory in your home directory
+-o ~/Movies/youtube/%(title)s.%(ext)s
