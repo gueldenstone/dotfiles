@@ -27,6 +27,7 @@ antigen bundle k
 antigen bundle hlissner/zsh-autopair
 antigen bundle zpm-zsh/clipboard
 antigen bundle copybuffer
+antigen bundle unixcorn/git-extra-commands
 
 
 # check if in kitty
