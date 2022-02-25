@@ -80,6 +80,10 @@ export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --follow --glob "!**.
 alias update-config="chezmoi git pull -- --rebase && chezmoi diff"
 
 # replace system tools
+alias mv="mv -v"
+alias cp="cp -v"
+alias rm="rm -v"
+
 # ls => exa
 if command -v exa &> /dev/null; then
   # style
