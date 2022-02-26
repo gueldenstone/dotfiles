@@ -113,6 +113,9 @@ alias gstat="git status --short"
 alias ld="lazydocker"
 alias lg="lazygit"
 
+# vi mode in zsh
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
 # completions
 # go-jira completion
 eval "$(/Users/lukas/go/bin/jira --completion-script-zsh)"
