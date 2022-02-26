@@ -100,7 +100,7 @@ if command -v bat &> /dev/null; then
 fi
 
 # nvim shorthand
-alias nv = "nvim"
+alias nv="nvim ."
 
 # git shorthands
 alias gs="git switch"
