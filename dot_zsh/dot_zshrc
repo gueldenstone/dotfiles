@@ -120,6 +120,8 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 # completions
 # go-jira completion
 eval "$(/Users/lukas/go/bin/jira --completion-script-zsh)"
+eval "$(/opt/homebrew/bin/colima completion zsh)"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
