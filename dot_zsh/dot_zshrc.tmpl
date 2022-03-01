@@ -58,14 +58,15 @@ antigen apply
 # TERM variable
 export TERM='xterm-256color'
 
-export MAKEFLAGS=-j$(nproc)
 {{ if eq .chezmoi.hostname "Lukas-MBP" }}
 # set PATH
+export MAKEFLAGS=-j$(sysctl -n hw.ncpu)
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/Library/Python/3.8/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
+export MAKEFLAGS=-j$(nproc)
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/stagetec/scripts:$PATH
