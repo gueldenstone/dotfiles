@@ -58,7 +58,7 @@ antigen apply
 # TERM variable
 export TERM='xterm-256color'
 
-
+export MAKEFLAGS=-j$(nproc)
 {{ if eq .chezmoi.hostname "Lukas-MBP" }}
 # set PATH
 export PATH=$HOME/.local/bin:$PATH
