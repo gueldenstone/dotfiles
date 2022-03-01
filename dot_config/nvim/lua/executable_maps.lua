@@ -55,8 +55,8 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 -- comment
 vim.g.kommentary_create_default_mappings = false
-vim.api.nvim_set_keymap("n", "<leader>ct", "<Plug>kommentary_line_default", {})
-vim.api.nvim_set_keymap("v", "<leader>ct", "<Plug>kommentary_visual_default", {})
+vim.api.nvim_set_keymap("n", "<leader>/", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "<leader>/", "<Plug>kommentary_visual_default", {})
 
 -- Don't copy the replaced text after pasting.
 map("v", "p", "\"_dP")
