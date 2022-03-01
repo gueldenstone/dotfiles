@@ -57,7 +57,7 @@ antigen apply
 # TERM variable
 export TERM='xterm-256color'
 
-{{ if eq .chezmoi.hostname "Lukas-MBP" }}
+{{ if eq .chezmoi.hostname "lukas-mbp" }}
 # set PATH
 export MAKEFLAGS=-j$(sysctl -n hw.ncpu)
 export PATH=$HOME/.local/bin:$PATH
