@@ -5,8 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# use antigen=
+# use antigen
+{{ if eq .chezmoi.os "darwin" }}
+# darwin
 source /opt/homebrew/share/antigen/antigen.zsh
+{{ else if eq .chezmoi.os "linux" }}
+# linux
+source $HOME/antigen.zsh
+{{ else }}
+# other operating system
+{{ end }}
 
 # use oh-my-zsh
 antigen use oh-my-zsh
@@ -45,15 +53,20 @@ antigen theme romkatv/powerlevel10k
 # apply antigen
 antigen apply
 
+# TERM variable
+export TERM='xterm-256color'
+
+
+{{ if eq .chezmoi.hostname "Lukas-MBP" }}
 # set PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/Library/Python/3.8/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
+{{ end }}
 
-# TERM variable
-export TERM='xterm-256color'
 
+{{ if eq .chezmoi.os "darwin" }}
 # homebrew
 if type brew &>/dev/null
 then
@@ -62,6 +75,7 @@ then
   autoload -Uz compinit
   compinit
 fi
+{{ end }}
 
 # editor settings
 # Preferred editor for local and remote sessions
@@ -117,12 +131,6 @@ alias lg="lazygit"
 
 # vi mode in zsh
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-
-# completions
-# go-jira completion
-eval "$(/Users/lukas/go/bin/jira --completion-script-zsh)"
-eval "$(/opt/homebrew/bin/colima completion zsh)"
-
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
