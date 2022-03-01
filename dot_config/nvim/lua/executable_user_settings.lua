@@ -60,7 +60,7 @@ map('','<Right>','<Nop>')
 opt.scrolloff=30
 
 map("", "<C-n>", ":NvimTreeToggle<CR>")
-
+map("", "C-_", "<Plug>kommentary_line_default")
 map("", "<leader>gg", ":LazyGit<CR>")
 map("", "<leader>_", "<Plug>kommentary_line_default")
 -- Or for changing terminal toggle mapping:
