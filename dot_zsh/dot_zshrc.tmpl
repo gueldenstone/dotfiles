@@ -29,6 +29,7 @@ antigen bundle unixorn/fzf-zsh-plugin@main
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle jeffreytse/zsh-vi-mode
 antigen bundle sudo
 antigen bundle docker
 antigen bundle docker-compose
@@ -138,6 +139,8 @@ alias lg="lazygit"
 
 # vi mode in zsh
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
