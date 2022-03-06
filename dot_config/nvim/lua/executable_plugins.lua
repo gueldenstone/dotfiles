@@ -60,7 +60,7 @@ return require("packer").startup({function()
     event = "BufEnter"
   }
 
-  -- File explorer tree.
+  --[[ -- File explorer tree.
   use {
     "kyazdani42/nvim-tree.lua",
     cmd = {
@@ -71,8 +71,14 @@ return require("packer").startup({function()
     config = function()
       require("plugins/nvim-tree")
     end
-  }
+  } ]]
 
+  use {
+    "preservim/nerdtree",
+    config = function ()
+      require("plugins/nerdtree")
+    end
+  }
   -- Bufferline.
   use {
     "akinsho/nvim-bufferline.lua",

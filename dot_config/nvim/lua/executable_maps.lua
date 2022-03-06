@@ -90,21 +90,21 @@ wk.register({
 wk.register({
   p = {
     name = "Packer",
-    i = { ":PackerInstall<CR>", "Install CodeArt packages" },
-    u = { ":PackerUpdate<CR>", "Update CodeArt packages" },
-    r = { ":PackerClean<CR>", "Uninstall unnecessary CodeArt packages" },
-    s = { ":PackerSync<CR>", "Sync CodeArt packages" },
-    c = { ":PackerClean<CR>", "Compile CodeArt packages" },
+    i = { ":PackerInstall<CR>", "Install packages" },
+    u = { ":PackerUpdate<CR>", "Update packages" },
+    r = { ":PackerClean<CR>", "Uninstall unnecessary packages" },
+    s = { ":PackerSync<CR>", "Sync packages" },
+    c = { ":PackerClean<CR>", "Compile packages" },
   }
 }, { prefix = "<leader>" })
 
 
--- NvimTree
+-- NERDTree
 wk.register({
   n = {
-    name = "NvimTree",
-    t = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
-    f = { ":NvimTreeFocus<CR>", "Focus on NvimTree" },
+    name = "NERDTree",
+    t = { ":NERDTreeToggle<CR>", "Toggle NERDTree" },
+    f = { ":NERDTreeFocus<CR>", "Focus on NERDTree" },
   }
 }, { prefix = "<leader>" })
 
@@ -146,16 +146,6 @@ wk.register({
 }, { prefix = "<leader>" })
 
 
--- ColorScheme keybindings.
-wk.register({
-  t = {
-    name = "Theme",
-    h = { ":Telescope colorscheme<CR>", "Find Colorscheme" },
-    p = { ":Telescope colorscheme enable_preview=true<CR>", "Find Colorscheme with previwer " },
-  }
-}, { prefix = "<leader>" })
-
-
 -- Lsp
 wk.register({
   l = {
@@ -190,29 +180,3 @@ wk.register({
   }
 }, { prefix = "<leader>" })
 
-
--- Dap
-wk.register({
-  d = {
-    name = "Debugging",
-    c = { ":lua require(\"dap\").continue()<CR>", "Continue" },
-    t = { ":lua require(\"dap\").terminate()<CR>", "Terminate" },
-    l = { ":lua require(\"dap\").run_last()<CR>", "Run Last Debugging Config" },
-    d = { ":lua require(\"dap\").repl.open()<CR>", "Open Debug Console" },
-    b = {
-      name = "Breakpoint",
-      t = { ":lua require(\"dap\").toggle_breakpoint()<CR>", "Toggle" },
-      c = { ":lua require(\"dap\").set_breakpoint(vim.fn.input(\"Breakpoint condition: \"))<CR>", "Set conditional" },
-      l = { ":lua require(\"dap\").set_breakpoint(nil, nil, vim.fn.input(\"Log point message: \"))<CR>", "With Log Point Message" },
-    },
-    s = {
-      name = "Step",
-      o = { ":lua require(\"dap\").step_over()<CR>", "Step Over" },
-      O = { ":lua require(\"dap\").step_into()<CR>", "Step Into" },
-      i = { ":lua require(\"dap\").step_out()<CR>", "Step Out" },
-      b = { ":lua require(\"dap\").step_back()<CR>", "Step Back" },
-      c = { ":lua require(\"dap\").run_to_cursor()<CR>", "Run To Cursor" },
-    },
-    u = { ":lua require(\"dapui\").toggle()<CR>", "Toggle UI" },
-  }
-}, { prefix = "<leader>" })

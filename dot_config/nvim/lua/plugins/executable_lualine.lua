@@ -37,7 +37,7 @@ lualine.setup {
     theme = "auto",
     disabled_filetypes = {
       "toggleterm",
-      "NvimTree",
+      "NERDTree",
       "vista_kind",
       "dapui_scopes",
       "dapui_breakpoints",

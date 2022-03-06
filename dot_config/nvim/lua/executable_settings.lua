@@ -96,12 +96,12 @@ augroup END
 -- Trim Whitespace
 exec([[au BufWritePre * call NoWhitespace()]], false)
 
--- Auto open nvim-tree when writing (nvim .) in command line
+-- Auto open NERDtree when writing (nvim .) in command line
 -- and auto open Dashboard when nothing given as argument.
 vim.cmd
 [[
 if index(argv(), ".") >= 0
-  autocmd VimEnter * NvimTreeOpen
+  autocmd VimEnter * NERDTree
   bd1
 elseif len(argv()) == 0
   autocmd VimEnter * Dashboard
