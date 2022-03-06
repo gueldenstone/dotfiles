@@ -99,12 +99,12 @@ wk.register({
 }, { prefix = "<leader>" })
 
 
--- NERDTree
+-- NvimTree
 wk.register({
   n = {
-    name = "NERDTree",
-    t = { ":NERDTreeToggle<CR>", "Toggle NERDTree" },
-    f = { ":NERDTreeFocus<CR>", "Focus on NERDTree" },
+    name = "NvimTree",
+    t = { ":NvimTreeToggle<CR>", "Toggle NvimTree" },
+    f = { ":NvimTreeFocus<CR>", "Focus on NvimTree" },
   }
 }, { prefix = "<leader>" })
 
