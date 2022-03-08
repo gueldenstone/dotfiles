@@ -203,7 +203,7 @@ lvim.plugins = {
 
 -- nvim-gps config
 local gps = require("nvim-gps")
-lvim.builtin.lualine.sections.lualine_c = { gps.get_location }
+lvim.builtin.lualine.sections.lualine_d = { gps.get_location }
 gps.setup()
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
