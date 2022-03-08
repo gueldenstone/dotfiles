@@ -12,11 +12,22 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "everforest"
+vim.opt.relativenumber = true
+
+-- lualine
 lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.sections.lualine_b = { "branch", "diff", "diagnostics" }
+lvim.builtin.lualine.sections.lualine_c = {
+        { "filename" },
+        {
+          gps.get_location,
+          cond = gps.is_available,
+          color = { fg = "#f3ca28" },
+        }, }
+
 
 
 -- some general settings
-vim.opt.relativenumber = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -203,7 +214,6 @@ lvim.plugins = {
 
 -- nvim-gps config
 local gps = require("nvim-gps")
-lvim.builtin.lualine.sections.lualine_c = { "filename", gps.get_location }
 gps.setup()
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
