@@ -17,6 +17,7 @@ vim.opt.relativenumber = true
 -- lualine
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_b = { "branch", "diff", "diagnostics" }
+local gps = require('nvim-gps')
 lvim.builtin.lualine.sections.lualine_c = {
         { "filename" },
         {
