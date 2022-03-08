@@ -92,6 +92,10 @@ else
    export EDITOR='lvim'
 fi
 
+# lunarvim shorthands
+alias lv="lvim"
+alias lvv="lvim ."
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # ctrl-t
@@ -123,10 +127,6 @@ fi
 if command -v bat &> /dev/null; then
   alias cat="bat --paging=never"
 fi
-
-# nvim shorthand
-alias nv="nvim"
-alias nvv="nvim ."
 
 # git shorthands
 alias gs="git switch"
