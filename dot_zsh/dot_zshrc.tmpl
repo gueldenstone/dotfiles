@@ -73,7 +73,6 @@ export PATH=$HOME/stagetec/scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 {{ end }}
 
-
 {{ if eq .chezmoi.os "darwin" }}
 # homebrew
 if type brew &>/dev/null
@@ -100,6 +99,9 @@ export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --follow --glob "!**.
 
 # config management
 alias update-config="chezmoi git pull -- --rebase && chezmoi diff"
+
+# use direnv
+eval "$(direnv hook zsh)"
 
 # replace system tools
 alias mv="mv -v"
