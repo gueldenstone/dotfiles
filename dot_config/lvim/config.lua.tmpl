@@ -246,18 +246,18 @@ lvim.plugins = {
 
 -- activate dap support
 lvim.builtin.dap.active = true
--- -- termdebug
--- vim.cmd("packadd termdebug")
--- -- keymaps
--- vim.cmd("tnoremap <Esc> <C-\\><C-n>")
--- lvim.builtin.which_key.mappings["d"] = {
---   name = "Debug",
---   d = { "<cmd>Termdebug<cr>", "Start Termdebug" },
---   b = { "<cmd>Break<cr>", "Insert Breakpoint" },
---   c = { "<cmd>Clear<cr>", "Clear Termdebug" },
--- }
--- -- set gdb to local gdb
--- vim.cmd("let g:termdebugger = $GDB")
+-- termdebug
+vim.cmd("packadd termdebug")
+-- keymaps
+vim.cmd("tnoremap <Esc> <C-\\><C-n>")
+lvim.builtin.which_key.mappings["d"] = {
+  name = "Debug",
+  d = { "<cmd>Termdebug<cr>", "Start Termdebug" },
+  b = { "<cmd>Break<cr>", "Insert Breakpoint" },
+  c = { "<cmd>Clear<cr>", "Clear Termdebug" },
+}
+-- set gdb to local gdb
+vim.cmd("let g:termdebugger = $GDB")
 
 -- nvim-gps config
 local gps = require("nvim-gps")
