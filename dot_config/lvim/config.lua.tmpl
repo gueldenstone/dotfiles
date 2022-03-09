@@ -252,10 +252,9 @@ vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
   d = { "<cmd>Termdebug<cr>", "Start Termdebug" },
+  b = { "<cmd>Break<cr>", "Insert Breakpoint" },
+  c = { "<cmd>Clear<cr>", "Clear Termdebug" },
 }
--- vim.cmd("nnoremap <silent> <leader>dd :Termdebug<CR>")
--- vim.cmd("nnoremap <silent> <leader>db :Break<CR>")
--- vim.cmd("nnoremap <silent> <leader>dc :Clear<CR>")
 -- set gdb to local gdb
 vim.cmd("let g:termdebugger = $GDB")
 
