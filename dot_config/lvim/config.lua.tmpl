@@ -52,6 +52,7 @@ vim.opt.mouse = ""
 
 -- keymaps for preview
 lvim.keys.normal_mode["gp"] = false
+vim.api.nvim_set_keymap('', 'gp', '<Nop>', { noremap = true, silent = true })
 
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
