@@ -254,6 +254,9 @@ vim.cmd("nnoremap <silent> <leader>b :Break<CR>")
 vim.cmd("nnoremap <silent> <leader>bc :Clear<CR>")
 vim.cmd("nnoremap <silent> <leader>c :Continue<CR>")
 
+-- set gdb to local gdb
+vim.cmd("let g:termdebugger = $GDB")
+
 
 -- nvim-gps config
 local gps = require("nvim-gps")
