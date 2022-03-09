@@ -249,9 +249,13 @@ lvim.plugins = {
 vim.cmd("packadd termdebug")
 -- keymaps
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-vim.cmd("nnoremap <silent> <leader>dd :Termdebug<CR>")
-vim.cmd("nnoremap <silent> <leader>db :Break<CR>")
-vim.cmd("nnoremap <silent> <leader>dc :Clear<CR>")
+lvim.builtin.which_key.mappings["d"] = {
+  name = "Debug",
+  d = { "<cmd>Termdebug<cr>", "Start Termdebug" },
+}
+-- vim.cmd("nnoremap <silent> <leader>dd :Termdebug<CR>")
+-- vim.cmd("nnoremap <silent> <leader>db :Break<CR>")
+-- vim.cmd("nnoremap <silent> <leader>dc :Clear<CR>")
 -- set gdb to local gdb
 vim.cmd("let g:termdebugger = $GDB")
 
