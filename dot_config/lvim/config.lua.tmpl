@@ -247,9 +247,10 @@ lvim.plugins = {
             -- default_mappings = true;
             -- You can use "default_mappings = true" setup option
             -- Or explicitly set keybindings
-            -- vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
-            -- vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
-            -- vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
+            vim.cmd("nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+            vim.cmd("nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+            vim.cmd("nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>")
+            vim.cmd("nnoremap gp <Nop>")
         }
       end
     },
