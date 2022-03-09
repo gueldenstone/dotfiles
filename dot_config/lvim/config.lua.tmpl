@@ -249,9 +249,9 @@ vim.cmd("packadd termdebug")
 
 -- nicer debugging
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-vim.cmd("nnoremap <silent> <leader>b :Break<CR>")
-vim.cmd("nnoremap <silent> <leader>bc :Clear<CR>")
-vim.cmd("nnoremap <silent> <leader>c :Continue<CR>")
+vim.cmd("nnoremap <silent> <leader>db :Break<CR>")
+vim.cmd("nnoremap <silent> <leader>dc :Clear<CR>")
+vim.cmd("nnoremap <silent> <leader>dc :Continue<CR>")
 
 -- set gdb to local gdb
 vim.cmd("let g:termdebugger = $GDB")
