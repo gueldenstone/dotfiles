@@ -17,26 +17,11 @@ vim.opt.relativenumber = true
 -- lualine
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_b = { "branch", "diff", "diagnostics" }
-local gps = require('nvim-gps')
-lvim.builtin.lualine.sections.lualine_c = {
-        { "filename" },
-        {
-          gps.get_location,
-          cond = gps.is_available,
-          color = { fg = "#f3ca28" },
-        }, }
 
-
-
--- some general settings
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+
+-- disable cursors, but use up and down for scrolling
 vim.api.nvim_set_keymap('', '<Up>', '<C-y>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('', '<Down>', '<C-e>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('', '<Left>', '<Nop>', { noremap = true, silent = true })
@@ -47,54 +32,26 @@ vim.api.nvim_set_keymap('i', '<Left>', '<Nop>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('', '<Left>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('', '<Right>', '<Nop>', { noremap = true, silent = true })
+
+-- keepcursor in the middle
 vim.opt.scrolloff=30
+
+-- diable mouse
 vim.opt.mouse = ""
+-- add your own keymapping
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
-
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
-
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
--- }
-
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 1
+lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
   "cpp",
-  "go",
   "javascript",
   "json",
   "lua",
@@ -107,8 +64,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
 
 -- setup clangd
 -- some settings can only passed as commandline flags `clangd --help`
@@ -145,104 +100,20 @@ local opts = {
 
 require("lvim.lsp.manager").setup("clangd", opts)
 
--- generic LSP settings
+lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.highlight.enabled = true
 
--- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
-
--- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
--- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
--- vim.list_extend(lvim.lsp.override, { "pyright" })
-
--- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pylsp", opts)
-
--- -- you can set a custom on_attach function that will be used for all the language servers
--- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
-
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
-
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
-
--- Additional Plugins
+-- plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"},
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
     {"sainnhe/everforest"},
-    {"SmiteshP/nvim-gps"},
-    {
-      "klen/nvim-config-local",
-      config = function()
-        require('config-local').setup {
-          -- Default configuration (optional)
-          config_files = { ".vimrc.lua", ".vimrc" },  -- Config file patterns to load (lua supported)
-          hashfile = vim.fn.stdpath("data") .. "/config-local", -- Where the plugin keeps files data
-          autocommands_create = true,                 -- Create autocommands (VimEnter, DirectoryChanged)
-          commands_create = true,                     -- Create commands (ConfigSource, ConfigEdit, ConfigTrust, ConfigIgnore)
-          silent = false,                             -- Disable plugin messages (Config loaded/ignored)
-        }
-      end
-    },
     {"tpope/vim-repeat"},
     {
       "ggandor/lightspeed.nvim",
       event = "BufRead",
     },
-    {
-      "rmagatti/goto-preview",
-      config = function()
-      require('goto-preview').setup {
-            width = 120; -- Width of the floating window
-            height = 25; -- Height of the floating window
-            default_mappings = true; -- Bind default mappings
-            debug = false; -- Print debug information
-            opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
-            post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
-        }
-      end
-    },
 }
+
+-- debugging
 
 -- termdebug
 vim.cmd("packadd termdebug")
@@ -257,10 +128,3 @@ lvim.builtin.which_key.mappings["d"] = {
 -- set gdb to local gdb
 vim.cmd("let g:termdebugger = $GDB")
 
--- nvim-gps config
-local gps = require("nvim-gps")
-gps.setup()
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
