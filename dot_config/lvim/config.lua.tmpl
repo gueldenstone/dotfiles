@@ -67,6 +67,7 @@ lvim.builtin.treesitter.ensure_installed = {
 
 -- setup clangd
 -- some settings can only passed as commandline flags `clangd --help`
+local driver = os.getenv("CLANGD_QUERY_DRIVER")
 local clangd_flags = {
   "--all-scopes-completion",
   "--suggest-missing-includes",
@@ -78,7 +79,7 @@ local clangd_flags = {
   "--enable-config", -- clangd 11+ supports reading from .clangd configuration file
   "--clang-tidy",
   {{- if eq .chezmoi.hostname "lukas-mbp"}}
-  "--query-driver=/Applications/ARM/**/arm-none-eabi*"
+  "--query-driver="..driver
   {{- end}}
   -- "--clang-tidy-checks=-*,llvm-*,clang-analyzer-*,modernize-*,-modernize-use-trailing-return-type",
   -- "--fallback-style=Google",
