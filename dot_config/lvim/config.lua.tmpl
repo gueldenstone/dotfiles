@@ -111,3 +111,42 @@ lvim.builtin.which_key.mappings["d"] = {
 -- set gdb to local gdb
 vim.cmd("let g:termdebugger = $GDB")
 
+-- autopairs manual
+--autoclose and position cursor to write text inside
+vim.api.nvim_set_keymap('i', "'", "''<left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', "`", "``<left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '"', '""<left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(', "()<left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[', "[]<left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{', "{}<left>", { noremap = true, silent = true })
+--autoclose with ; and position cursor to write text inside
+vim.api.nvim_set_keymap('i', "';", "'';<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', "`;", "``;<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '";', '"";<left><left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(;', "();<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[;', "[];<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{;', "{};<left><left>", { noremap = true, silent = true })
+--autoclose with , and position cursor to write text inside
+vim.api.nvim_set_keymap('i', "',", "'',<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '`', "``,<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '",', '"",<left><left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(,', "(),<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[,', "[],<left><left>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{,', "{},<left><left>", { noremap = true, silent = true })
+--autoclose and position cursor after
+vim.api.nvim_set_keymap('i', "'<tab>", "''", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', "`<tab>", "``", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '"<tab>', '""', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(<tab>', "()", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[<tab>', "[]", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{<tab>', "{}", { noremap = true, silent = true })
+--autoclose with ; and position cursor after
+vim.api.nvim_set_keymap('i', "';<tab>", "'';", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '`;<tab>', "``;", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '";<tab>', '"";', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '(;<tab>', "();", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '[;<tab>', "[];", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{;<tab>', "{};", { noremap = true, silent = true })
+--autoclose with , and position cursor after
+vim.api.nvim_set_keymap('i', "',<tab>", "'',", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '`,<tab>', "``,", { noremap = true, silent = true })
