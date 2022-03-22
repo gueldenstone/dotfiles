@@ -98,6 +98,10 @@ lvim.plugins = {
     "knubie/vim-kitty-navigator",
     run = 'cp ./*.py ~/.config/kitty/'
   },
+  {
+    "tpope/vim-surround",
+    keys = {"c", "d", "y"}
+  },
 }
 
 -- debugging
@@ -154,3 +158,4 @@ vim.api.nvim_set_keymap('i', '{;<tab>', "{};", { noremap = true, silent = true }
 --autoclose with , and position cursor after
 vim.api.nvim_set_keymap('i', "',<tab>", "'',", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '`,<tab>', "``,", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '{<CR>', "{<CR><CR>}<up><tab>", { noremap = true, silent = true })
