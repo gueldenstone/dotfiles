@@ -46,6 +46,10 @@ if [ -n ${KITTY_WINDOW_ID+x} ]; then
   alias kssh="kitty +kitten ssh"
   alias d="kitty +kitten diff"
   antigen bundle zsh-kitty
+  function klv() {
+  	export PROJECT_DIR=$1
+  	kitty --session ~/.config/kitty/code.conf &!
+  }
 fi
 
 
