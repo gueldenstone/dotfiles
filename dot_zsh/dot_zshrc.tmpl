@@ -134,6 +134,11 @@ if command -v bat &> /dev/null; then
   alias cat="bat --paging=never"
 fi
 
+# asdf
+if command -v asdf &> /dev/null; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
 # handle terminal
 alias cl="clear"
 # git shorthands
