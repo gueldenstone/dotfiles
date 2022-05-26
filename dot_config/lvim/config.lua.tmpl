@@ -102,6 +102,10 @@ lvim.plugins = {
     "tpope/vim-surround",
     keys = {"c", "d", "y"}
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
 
 -- debugging
