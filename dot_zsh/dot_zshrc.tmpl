@@ -110,7 +110,9 @@ alias lvv="lvim ."
 alias update-config="chezmoi git pull -- --rebase && chezmoi diff"
 
 # use direnv
-eval "$(direnv hook zsh)"
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
 # replace system tools
 alias mv="mv -v"
