@@ -159,6 +159,13 @@ alias dc="docker-compose"
 # other shorts
 alias m="make"
 
+
+# kvass
+if command -v kass &> /dev/null; then
+  alias ks="kvass set"
+  alias kg="kvass get"
+fi
+
 # vi mode in zsh
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 bindkey -M vicmd "k" up-line-or-beginning-search
