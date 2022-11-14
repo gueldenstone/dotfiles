@@ -5,6 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+{{ if eq .chezmoi.os "darwin" }}
+# homebrew
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+{{ end }}
 # use antigen
 {{ if eq .chezmoi.os "darwin" }}
 # darwin
@@ -74,16 +84,6 @@ export PATH=$HOME/stagetec/scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 {{ end }}
 
-{{ if eq .chezmoi.os "darwin" }}
-# homebrew
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-{{ end }}
 
 # editor settings
 # Preferred editor for local and remote sessions
