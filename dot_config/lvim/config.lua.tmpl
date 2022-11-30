@@ -46,8 +46,8 @@ vim.opt.scrolloff=30
 vim.opt.mouse = ""
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<S-h>"] = "gt"
-lvim.keys.normal_mode["<S-l>"] = "gT"
+lvim.keys.normal_mode["<S-h>"] = ":bp"
+lvim.keys.normal_mode["<S-l>"] = ":bn"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
