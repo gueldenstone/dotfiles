@@ -108,7 +108,7 @@ alias update-config="chezmoi git pull -- --rebase && chezmoi diff"
 
 # use direnv
 if command -v direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
+  eval "$(direnv hook zsh 2> >( egrep -v -e '^direnv: (loading|export|unloading)' ))"
 fi
 
 # replace system tools
