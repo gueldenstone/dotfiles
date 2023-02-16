@@ -176,6 +176,11 @@ if command -v fuck &> /dev/null; then
    eval $(thefuck --alias)
 fi
 
+
+if command -v broot &> /dev/null; then
+  source /Users/lukas/.config/broot/launcher/bash/br
+fi
+
 {{ if eq .chezmoi.hostname "lukas-mbp" }}
 if command -v flutter &> /dev/null; then
   export PATH="$PATH":"/opt/homebrew/Caskroom/flutter/3.0.5/flutter/.pub-cache/bin"
