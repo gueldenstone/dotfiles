@@ -1,0 +1,10 @@
+customProviders [
+  {
+    name: startpage
+    url: "https://www.startpage.com/sp/search?query=%s"
+    tags: [startpage]
+  }
+]
+
+
+provider: startpage
