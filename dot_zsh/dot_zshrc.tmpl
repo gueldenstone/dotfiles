@@ -160,6 +160,9 @@ alias gg="go get"
 # other shorts
 alias m="make"
 
+if command -v bpytop &> /dev/null; then
+alias top=bpytop
+fi
 
 # kvass
 if command -v kvass &> /dev/null; then
