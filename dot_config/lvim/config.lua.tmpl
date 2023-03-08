@@ -137,16 +137,3 @@ lvim.plugins = {
 -- easy align
 lvim.keys.visual_mode['ga'] = ":Easyalign<CR>"
 
--- debugging
-
--- termdebug
-vim.cmd("packadd termdebug")
--- keymaps
-vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-lvim.builtin.which_key.mappings["d"] = {
-  name = "Debug",
-  d = { "<cmd>Termdebug<cr>", "Start Termdebug" },
-  b = { "<cmd>Break<cr>", "Insert Breakpoint" },
-  c = { "<cmd>Clear<cr>", "Clear Termdebug" },
-}
-
