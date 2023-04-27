@@ -103,7 +103,7 @@ lvim.plugins = {
   },
   {
     "knubie/vim-kitty-navigator",
-    run = 'cp ./*.py ~/.config/kitty/'
+    build = 'cp ./*.py ~/.config/kitty/'
   },
   {
     "tpope/vim-surround",
@@ -111,7 +111,7 @@ lvim.plugins = {
   },
   {
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    build = function() vim.fn["mkdp#util#install"]() end,
   },
   {
     "andymass/vim-matchup",
