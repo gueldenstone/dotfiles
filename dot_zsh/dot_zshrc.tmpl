@@ -199,6 +199,9 @@ fi
 if command -v /Applications/Ipe.app/Contents/MacOS/ipe &> /dev/null; then
   export PATH=$PATH:/Applications/Ipe.app/Contents/MacOS
 fi
+
+# Elixir persisten history
+export ERL_AFLAGS="-kernel shell_history enabled"
 {{ end }}
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
