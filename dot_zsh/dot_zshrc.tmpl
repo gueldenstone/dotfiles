@@ -73,6 +73,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 export SSH_AUTH_SOCK=/Users/lukas/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+export VCPKG_ROOT="$HOME/vcpkg"
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
 export MAKEFLAGS=-j$(nproc)
 export PATH=$HOME/.local/bin:$PATH
