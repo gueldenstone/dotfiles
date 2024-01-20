@@ -95,15 +95,15 @@ alias phone-home="sudo tailscale up --exit-node=homepi"
 
 # editor settings
 # Preferred editor for local and remote sessions
-if command -v lvim &> /dev/null; then
-   export EDITOR='lvim'
+if command -v nvim &> /dev/null; then
+   export EDITOR='nvim'
 else
    export EDITOR='vim'
 fi
 
 # lunarvim shorthands
-alias lv="lvim"
-alias lvv="lvim ."
+alias lv="nvim"
+alias lvv="nvim ."
 
 # ctrl-t
 ## export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --follow --glob "!**.git/*" --glob "!vendor/*" 2>/dev/null'
