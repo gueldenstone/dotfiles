@@ -92,6 +92,8 @@ export PATH=$HOME/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export TERM=screen-256color-bce
 alias phone-home="sudo tailscale up --exit-node=homepi"
+{{ else if eq .chezmoi.hostname "c-de-006195" }}
+export PATH=$HOME/.local/bin:$PATH
 {{ end }}
 
 
