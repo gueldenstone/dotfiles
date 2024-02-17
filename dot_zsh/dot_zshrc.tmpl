@@ -94,6 +94,10 @@ export TERM=screen-256color-bce
 alias phone-home="sudo tailscale up --exit-node=homepi"
 {{ else if eq .chezmoi.hostname "c-de-006195" }}
 export PATH=$HOME/.local/bin:$PATH
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 {{ end }}
 
 
@@ -137,6 +141,7 @@ if command -v exa &> /dev/null; then
   alias l="exa --group-directories-first -1 --icons --color=auto -F"
   alias ll="exa -ahFl --group-directories-first --color=auto --icons --time-style=long-iso"
   cd() { builtin cd "$@" && exa --group-directories-first --icons --color=auto -F; }
+  alias tree="exa --tree"
 fi
 
 # cat => bat
@@ -193,9 +198,6 @@ if command -v fuck &> /dev/null; then
 fi
 
 
-if command -v broot &> /dev/null; then
-  source /Users/lukas/.config/broot/launcher/bash/br
-fi
 
 {{ if eq .chezmoi.hostname "lukas-mbp" }}
 if command -v flutter &> /dev/null; then
