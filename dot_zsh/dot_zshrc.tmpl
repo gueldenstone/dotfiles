@@ -85,6 +85,13 @@ export PATH=$HOME/.mix/escripts:$PATH
 export SSH_AUTH_SOCK=/Users/lukas/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 export VCPKG_ROOT="$HOME/vcpkg"
 . $HOME/.cargo/env
+
+# bun completions
+[ -s "/Users/lukas/.bun/_bun" ] && source "/Users/lukas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
 export MAKEFLAGS=-j$(nproc)
 export PATH=$HOME/.local/bin:$PATH
