@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 --
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 -- disable cursors, but use up and down for scrolling
 -- vim.api.nvim_set_keymap("", "<Up>", "<C-y>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("", "<Down>", "<C-e>", { noremap = true, silent = true })
@@ -33,5 +33,5 @@ vim.opt.scrolloff = 30
 -- Remap CMD+B to CMakeBuild in normal mode
 map("n", "<D-b>", ":CMakeBuild<CR>", { noremap = true, silent = true })
 
--- Remap CMD+R to CMakeRun in normal mode
-map("n", "<D-r>", ":CMakeRun<CR>", { noremap = true, silent = true })
+-- Remap leader+R to CMakeRun in normal mode
+map("n", "<leader>r", ":CMakeRun<CR>", { noremap = true, silent = true })
