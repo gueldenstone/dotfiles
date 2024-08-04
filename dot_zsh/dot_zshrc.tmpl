@@ -145,16 +145,16 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias rm="rm -v"
 
-# ls => exa
-if command -v exa &> /dev/null; then
+# ls => eza
+if command -v eza &> /dev/null; then
   # style
   export EXA_COLORS="ur=32:uw=32:ux=32:ue=32"
   export EXA_COLORS="gr=31:gw=31:gx=31":$EXA_COLORS
   export EXA_COLORS="tr=33:tw=33:tx=33":$EXA_COLORS
-  alias l="exa --group-directories-first -1 --icons --color=auto -F"
-  alias ll="exa -ahFl --group-directories-first --color=auto --icons --time-style=long-iso"
-  cd() { builtin cd "$@" && exa --group-directories-first --icons --color=auto -F; }
-  alias tree="exa --tree"
+  alias l="eza --group-directories-first -1 --icons --color=auto -F"
+  alias ll="eza -ahFl --group-directories-first --color=auto --icons --time-style=long-iso"
+  cd() { builtin cd "$@" && eza --group-directories-first --icons --color=auto -F; }
+  alias tree="eza --tree"
 fi
 
 # cat => bat
