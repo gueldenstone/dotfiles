@@ -17,10 +17,6 @@ then
 
   export PATH=$(brew --prefix openssh)/bin:$PATH
   export PATH=$(brew --prefix)/bin:$PATH
-  # nvm
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 fi
 {{ end }}
 # use antigen
@@ -54,6 +50,7 @@ antigen bundle vscode
 antigen bundle hlissner/zsh-autopair
 antigen bundle copybuffer
 antigen bundle autoenv
+antigen bundle nvm
 
 
 # check if in kitty
