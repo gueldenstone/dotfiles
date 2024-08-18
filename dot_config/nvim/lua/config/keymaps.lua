@@ -3,17 +3,6 @@
 -- Add any additional keymaps here
 --
 local map = vim.keymap.set
--- disable cursors, but use up and down for scrolling
--- vim.api.nvim_set_keymap("", "<Up>", "<C-y>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("", "<Down>", "<C-e>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("", "<Left>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("", "<Right>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<Left>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<Right>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("i", "<Left>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("i", "<Right>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("", "<Left>", "<Nop>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("", "<Right>", "<Nop>", { noremap = true, silent = true })
 
 -- Map KittyNavigateLeft to Ctrl+h
 map("n", "<C-h>", ":KittyNavigateLeft<CR>", { noremap = true, silent = true })
@@ -30,8 +19,10 @@ map("n", "<C-l>", ":KittyNavigateRight<CR>", { noremap = true, silent = true })
 -- keepcursor in the middle
 vim.opt.scrolloff = 30
 
--- Remap CMD+B to CMakeBuild in normal mode
-map("n", "<D-b>", ":CMakeBuild<CR>", { noremap = true, silent = true })
-
--- Remap leader+R to CMakeRun in normal mode
-map("n", "<leader>r", ":CMakeRun<CR>", { noremap = true, silent = true })
+-- CMake whichkey mappings
+map("n", "<leader>ccr", ":CMakeRun<CR>", { noremap = true, silent = true })
+map("n", "<leader>ccs", ":CMakeSelectConfigurePreset<CR>", { noremap = true, silent = true })
+map("n", "<leader>ccS", ":CMakeSelectBuildPreset<CR>", { noremap = true, silent = true })
+map("n", "<leader>ccb", ":CMakeBuild<CR>", { noremap = true, silent = true })
+map("n", "<leader>ccb", ":CMakeBuild<CR>", { noremap = true, silent = true })
+map("n", "<leader>ccd", ":CMakeDebug<CR>", { noremap = true, silent = true })
