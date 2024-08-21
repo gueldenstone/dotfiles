@@ -78,7 +78,6 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$HOME/.mix/escripts:$PATH
-export SSH_AUTH_SOCK=/Users/lukas/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 export VCPKG_ROOT="$HOME/vcpkg"
 . $HOME/.cargo/env
 
@@ -119,9 +118,8 @@ else
 fi
 
 # lunarvim shorthands
-alias lvim="nvim"
-alias lv="nvim"
-alias lvv="nvim ."
+alias nv="nvim ."
+alias nvv="nvim"
 
 # ctrl-t
 ## export FZF_CTRL_T_COMMAND='rg --files --no-ignore --hidden --follow --glob "!**.git/*" --glob "!vendor/*" 2>/dev/null'
