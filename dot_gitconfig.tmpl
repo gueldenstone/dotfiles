@@ -1,6 +1,10 @@
 [user]
 	name = Lukas Güldenstein
+{{ if eq .chezmoi.hostname "c-de-006195" }}
 	email = lukas.gueldenstein@dbaudio.com
+{{ else if eq .chezmoi.hostname "lukas-mpb"}}
+	email = git@lukasgueldenstein.de
+{{ end }}
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -9,7 +13,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [core]
-	excludesfile = /Users/lukas.gueldenstein/.gitignore
+	excludesfile = $HOME/.gitignore
 [rerere]
 	enabled = true
 [rebase]
@@ -24,8 +28,10 @@
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
 
+{{ if eq .chezmoi.hostname "c-de-006195" }}
 [includeIf "gitdir:~/private/"]
     path = ~/private/.gitconfig
+{{ end }}
 [submodule]
   recurse = true
 
