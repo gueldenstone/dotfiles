@@ -1,0 +1,38 @@
+[user]
+	name = Lukas Güldenstein
+	email = lukas.gueldenstein@dbaudio.com
+[pull]
+	rebase = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+	excludesfile = /Users/lukas.gueldenstein/.gitignore
+[rerere]
+	enabled = true
+[rebase]
+	autosquash = true
+	autostash = true
+[init]
+	defaultBranch = main
+[commit]
+	verbose = true
+[diff]
+	algorithm = histogram
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
+
+[includeIf "gitdir:~/private/"]
+    path = ~/private/.gitconfig
+[submodule]
+  recurse = true
+
+[alias]
+	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+	st = "status"
+	pll = "pull"
+	p = "push --force-with lease"
+	unstage = "reset HEAD --"
+	last = "log -1 HEAD"
