@@ -1,10 +1,10 @@
 [user]
 	name = Lukas Güldenstein
-{{ if eq .chezmoi.hostname "c-de-006195" }}
+{{- if eq .chezmoi.hostname "c-de-006195" }}
 	email = lukas.gueldenstein@dbaudio.com
-{{ else if eq .chezmoi.hostname "lukas-mpb"}}
+{{- else if eq .chezmoi.hostname "lukas-mpb"}}
 	email = git@lukasgueldenstein.de
-{{ end }}
+{{- end }}
 [pull]
 	rebase = true
 [filter "lfs"]
