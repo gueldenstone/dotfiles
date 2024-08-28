@@ -28,10 +28,11 @@
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
 
-{{ if eq .chezmoi.hostname "c-de-006195" }}
+{{- if eq .chezmoi.hostname "c-de-006195" }}
 [includeIf "gitdir:~/private/"]
     path = ~/private/.gitconfig
-{{ end }}
+{{- end }}
+
 [submodule]
   recurse = true
 
