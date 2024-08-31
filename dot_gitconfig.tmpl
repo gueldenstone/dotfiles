@@ -2,9 +2,14 @@
 	name = Lukas Güldenstein
 {{- if eq .chezmoi.hostname "c-de-006195" }}
 	email = lukas.gueldenstein@dbaudio.com
-{{- else if eq .chezmoi.hostname "lukas-mpb"}}
+{{- else if eq .chezmoi.hostname "lukas-mbp"}}
 	email = git@lukasgueldenstein.de
+	signingkey = 211D3A2D04BF3AF116FE7D68ED4744442BDCFF42
 {{- end }}
+[core]
+	editor = nvim
+	excludesfile = $HOME/.gitignore
+    pager = delta
 [pull]
 	rebase = true
 [filter "lfs"]
@@ -12,8 +17,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[core]
-	excludesfile = $HOME/.gitignore
 [rerere]
 	enabled = true
 [rebase]
@@ -23,6 +26,9 @@
 	defaultBranch = main
 [commit]
 	verbose = true
+{{- if eq .chezmoi.hostname "lukas-mbp"}}
+	gpgsign = true
+{{- end }}
 [diff]
 	algorithm = histogram
 [blame]
@@ -31,6 +37,9 @@
 {{- if eq .chezmoi.hostname "c-de-006195" }}
 [includeIf "gitdir:~/private/"]
     path = ~/private/.gitconfig
+{{- else if eq .chezmoi.hostname "lukas-mbp"}}
+[includeIf "gitdir:~/github/"]
+    path = ~/github/.gitconfig
 {{- end }}
 
 [submodule]
@@ -43,3 +52,18 @@
 	p = "push --force-with lease"
 	unstage = "reset HEAD --"
 	last = "log -1 HEAD"
+    sw = "switch"
+    swc = "switch -c"
+    s = status
+    c = commit
+    b = branch
+    d = diff
+    l = log --oneline
+
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
