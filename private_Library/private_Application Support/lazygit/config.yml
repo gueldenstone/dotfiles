@@ -1,0 +1,6 @@
+git:
+  autoFetch: false
+  mainBranches:
+    - master
+    - main
+    - develop
