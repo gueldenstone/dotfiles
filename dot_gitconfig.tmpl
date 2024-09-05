@@ -54,6 +54,7 @@
 	last = "log -1 HEAD"
 	wta = "!f() { branch_name=$(echo \"$1\" | sed 's/\\//_/g'); git worktree add ../$branch_name $1; cp ./Makefile ../$branch_name/Makefile; cd ../$branch_name; make init; git submodule update; }; f"
 	wts = "worktree list"
+	wtp = "worktree prune"
     sw = "switch"
     swc = "switch -c"
     s = status
