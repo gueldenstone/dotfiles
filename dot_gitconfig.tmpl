@@ -52,7 +52,7 @@
 	p = "push --force-with-lease"
 	unstage = "reset HEAD --"
 	last = "log -1 HEAD"
-	wta = "!f() { branch_name=$(echo \"$1\" | sed 's/\\//_/g'); git worktree add ../$branch_name $1; cp ../develop/Makefile .; make init; git submodule update; }; f"
+	wta = "!f() { branch_name=$(echo \"$1\" | sed 's/\\//_/g'); git worktree add ../$branch_name $1; cp ./Makefile ../$branch_name/Makefile; make init; git submodule update; }; f"
     sw = "switch"
     swc = "switch -c"
     s = status
