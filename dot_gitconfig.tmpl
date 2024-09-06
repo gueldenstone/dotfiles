@@ -52,6 +52,7 @@
 	p = "push --force-with-lease"
 	unstage = "reset HEAD --"
 	last = "log -1 HEAD"
+{{- if eq .chezmoi.hostname "c-de-006195" }}
 	wta = "!f() { \
 		branch_name=$(git branch --list --no-merged | fzf | awk '{print $1}'); \
 		dir_name=$(echo $branch_name | sed 's/\\//_/g'); \
@@ -61,6 +62,9 @@
 	 	make init; \
 		git submodule update; \
 		}; f"
+{{- else }}
+	wta = "worktree add"
+{{- end }}
 	wts = "worktree list"
 	wtp = "worktree prune"
     sw = "switch"
