@@ -57,7 +57,7 @@
 		dir_name=$(echo $branch_name | sed 's/\\//_/g'); \
 		git worktree add ../$dir_name $branch_name; \
 		cd ../$dir_name; \
-		cp ../develop/Makefile .; \
+		cp ../Makefile .; \
 	 	make init; \
 		git submodule update; \
 		}; f"
