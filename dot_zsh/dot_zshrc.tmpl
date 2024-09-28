@@ -87,6 +87,11 @@ export VCPKG_ROOT="$HOME/vcpkg"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
 export MAKEFLAGS=-j$(nproc)
 export PATH=$HOME/.local/bin:$PATH
