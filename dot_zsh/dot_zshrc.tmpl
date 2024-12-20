@@ -50,7 +50,6 @@ antigen bundle vscode
 antigen bundle hlissner/zsh-autopair
 antigen bundle copybuffer
 antigen bundle autoenv
-antigen bundle Sparragus/zsh-auto-nvm-use
 
 
 # check if in kitty
@@ -98,6 +97,7 @@ eval "$(pyenv init -)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+antigen bundle Sparragus/zsh-auto-nvm-use
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
 export MAKEFLAGS=-j$(nproc)
 export PATH=$HOME/.local/bin:$PATH
