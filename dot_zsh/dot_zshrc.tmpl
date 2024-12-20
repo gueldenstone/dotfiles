@@ -64,8 +64,6 @@ fi
 # theme
 antigen theme romkatv/powerlevel10k
 
-# apply antigen
-antigen apply
 
 # TERM variable
 export TERM='xterm-256color'
@@ -230,5 +228,10 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 {{ end }}
 
+
+# apply antigen
+antigen apply
+
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+
