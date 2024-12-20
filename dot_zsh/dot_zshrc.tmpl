@@ -214,6 +214,10 @@ fi
 
 
 
+{{ if eq .chezmoi.os "darwin" }}
+	alias dhcp-renew='sudo ipconfig set en0 DHCP'
+{{ end }}
+
 {{ if eq .chezmoi.hostname "lukas-mbp" }}
 if command -v flutter &> /dev/null; then
   export PATH="$PATH":"/opt/homebrew/Caskroom/flutter/3.0.5/flutter/.pub-cache/bin"
