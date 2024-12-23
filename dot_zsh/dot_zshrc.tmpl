@@ -50,7 +50,12 @@ antigen bundle vscode
 antigen bundle hlissner/zsh-autopair
 antigen bundle copybuffer
 antigen bundle autoenv
-
+# nvm
+export NVM_DIR="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
+export NVM_NO_USE=true
+antigen bundle lukechilds/zsh-nvm
 
 # check if in kitty
 if [ -n ${KITTY_WINDOW_ID+x} ]; then
@@ -60,10 +65,11 @@ if [ -n ${KITTY_WINDOW_ID+x} ]; then
   antigen bundle zsh-kitty
 fi
 
-
 # theme
 antigen theme romkatv/powerlevel10k
 
+# apply antigen
+antigen apply
 
 # TERM variable
 export TERM='xterm-256color'
@@ -214,7 +220,7 @@ fi
 
 
 {{ if eq .chezmoi.os "darwin" }}
-	alias dhcp-renew='sudo ipconfig set en0 DHCP'
+alias dhcp-renew='sudo ipconfig set en0 DHCP'
 {{ end }}
 
 {{ if eq .chezmoi.hostname "lukas-mbp" }}
@@ -230,10 +236,6 @@ fi
 # Elixir persisten history
 export ERL_AFLAGS="-kernel shell_history enabled"
 {{ end }}
-
-
-# apply antigen
-antigen apply
 
 # To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
