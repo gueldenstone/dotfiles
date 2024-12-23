@@ -13,7 +13,9 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
   autoload -Uz compinit
-  compinit
+  # compinit
+  [ ! "$(find $ZDOTDIR/.zcompdump -mtime 1)" ] || compinit
+  compinit -C
 
   export PATH=$(brew --prefix openssh)/bin:$PATH
   export PATH=$(brew --prefix)/bin:$PATH
