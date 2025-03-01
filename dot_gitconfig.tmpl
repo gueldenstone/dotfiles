@@ -1,7 +1,16 @@
 [user]
 	name = Lukas Güldenstein
+{{ if .chezmoi.hostname "lukas-mbp" }}
+	email = git@lukasgueldenstein.de
+	signingkey = 211D3A2D04BF3AF116FE7D68ED4744442BDCFF42
+[includeIf "gitdir:~/github/"]
+	path = ~/github/.gitconfig
+{{ else if eq .chezmoi.hostname "c-de-006195" }}
 	email = lukas.gueldenstein@dbaudio.com
 	signingkey = 4D86F085BC79F3A9
+[includeIf "gitdir:~/private/"]
+	path = ~/private/.gitconfig
+{{ end }}
 
 # usability
 [core]
@@ -34,8 +43,6 @@
 	algorithm = histogram
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
-[includeIf "gitdir:~/private/"]
-	path = ~/private/.gitconfig
 [merge]
 	conflictstyle = zdiff3
 [help]
