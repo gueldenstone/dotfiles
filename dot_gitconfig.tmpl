@@ -1,49 +1,71 @@
 [user]
 	name = Lukas Güldenstein
-{{- if eq .chezmoi.hostname "c-de-006195" }}
 	email = lukas.gueldenstein@dbaudio.com
-{{- else if eq .chezmoi.hostname "lukas-mbp"}}
-	email = git@lukasgueldenstein.de
-	signingkey = 211D3A2D04BF3AF116FE7D68ED4744442BDCFF42
-{{- end }}
+	signingkey = 4D86F085BC79F3A9
+
+# usability
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
-    pager = delta
+	pager = delta
+[delta]
+    side-by-side = true
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+[interactive]
+    diffFilter = delta --color-only
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[submodule]
+	recurse = true
+[init]
+	defaultBranch = main
+[commit]
+	verbose = true
+	gpgsign = true
+[tag]
+	gpgSign = true
+[diff]
+	algorithm = histogram
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
+[includeIf "gitdir:~/private/"]
+	path = ~/private/.gitconfig
+[merge]
+	conflictstyle = zdiff3
+[help]
+	autocorrect = prompt
+
+# working with remotes
+[push]
+	default = simple
+	autoSetupRemote = true
+[fetch]
+	prune = true
 [pull]
 	rebase = true
+
+# git lfs
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
+# rebase workflow
 [rerere]
 	enabled = true
+	autoupdate = true
 [rebase]
 	autosquash = true
 	autostash = true
-[init]
-	defaultBranch = main
-[commit]
-	verbose = true
-{{- if eq .chezmoi.hostname "lukas-mbp"}}
-	gpgsign = true
-{{- end }}
-[diff]
-	algorithm = histogram
-[blame]
-  ignoreRevsFile = .git-blame-ignore-revs
+	updateRefs = true
 
-{{- if eq .chezmoi.hostname "c-de-006195" }}
-[includeIf "gitdir:~/private/"]
-    path = ~/private/.gitconfig
-{{- else if eq .chezmoi.hostname "lukas-mbp"}}
-[includeIf "gitdir:~/github/"]
-    path = ~/github/.gitconfig
-{{- end }}
-
-[submodule]
-  recurse = true
 
 [alias]
 	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
@@ -52,7 +74,6 @@
 	p = "push --force-with-lease"
 	unstage = "reset HEAD --"
 	last = "log -1 HEAD"
-{{- if eq .chezmoi.hostname "c-de-006195" }}
 	wta = "!f() { \
 		branch_name=$(git branch --list --no-merged | fzf | awk '{print $1}'); \
 		dir_name=$(echo $branch_name | sed 's/\\//_/g'); \
@@ -62,9 +83,6 @@
 	 	make init; \
 		git submodule update; \
 		}; f"
-{{- else }}
-	wta = "worktree add"
-{{- end }}
 	wts = "worktree list"
 	wtp = "worktree prune"
     sw = "switch"
@@ -75,10 +93,3 @@
     d = diff
     l = log --oneline
 
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    side-by-side = true
-    navigate = true  # use n and N to move between diff sections
-    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-    line-numbers = true
