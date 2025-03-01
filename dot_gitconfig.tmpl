@@ -76,11 +76,6 @@
 
 [alias]
 	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
-	st = "status"
-	pll = "pull"
-	p = "push --force-with-lease"
-	unstage = "reset HEAD --"
-	last = "log -1 HEAD"
 	wta = "!f() { \
 		branch_name=$(git branch --list --no-merged | fzf | awk '{print $1}'); \
 		dir_name=$(echo $branch_name | sed 's/\\//_/g'); \
@@ -92,11 +87,4 @@
 		}; f"
 	wts = "worktree list"
 	wtp = "worktree prune"
-    sw = "switch"
-    swc = "switch -c"
-    s = status
-    c = commit
-    b = branch
-    d = diff
-    l = log --oneline
 
