@@ -1,6 +1,6 @@
 [user]
 	name = Lukas Güldenstein
-{{ if .chezmoi.hostname "lukas-mbp" }}
+{{ if eq .chezmoi.hostname "lukas-mbp" }}
 	email = git@lukasgueldenstein.de
 	signingkey = 211D3A2D04BF3AF116FE7D68ED4744442BDCFF42
 [includeIf "gitdir:~/github/"]
