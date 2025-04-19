@@ -55,12 +55,6 @@ antigen bundle vscode
 antigen bundle hlissner/zsh-autopair
 antigen bundle copybuffer
 antigen bundle autoenv
-# nvm
-export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY_LOAD=true
-export NVM_AUTO_USE=true
-export NVM_NO_USE=true
-antigen bundle lukechilds/zsh-nvm
 
 # check if in kitty
 if [ -n ${KITTY_WINDOW_ID+x} ]; then
@@ -101,12 +95,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY_LOAD=true
-antigen bundle lukechilds/zsh-nvm
-antigen bundle Sparragus/zsh-auto-nvm-use
 
 {{ else if eq .chezmoi.hostname "lgu-ubuntu" }}
 export MAKEFLAGS=-j$(nproc)
