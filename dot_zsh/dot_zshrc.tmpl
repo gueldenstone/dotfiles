@@ -27,6 +27,7 @@ fi
 # use antigen
 {{ if eq .chezmoi.os "darwin" }}
 # darwin
+source ~/.local/state/nix/profiles/home-manager/home-path/share/antigen/antigen.zsh
 # use oh-my-zsh
 antigen use oh-my-zsh
 antigen bundle macos
