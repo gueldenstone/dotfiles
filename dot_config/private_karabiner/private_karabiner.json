@@ -215,7 +215,7 @@
                     "to": [{ "key_code": "f5" }]
                 }
             ],
-            "name": "Default profile",
+            "name": "german dev on ansi",
             "selected": true,
             "virtual_hid_keyboard": {
                 "country_code": 0,
